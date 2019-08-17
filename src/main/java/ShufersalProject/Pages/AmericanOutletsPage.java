@@ -1,19 +1,14 @@
-package ShufersalProject;
+package ShufersalProject.Pages;
 
-import ShufersalProject.UtilityMethods.PageUtilities;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
+
 import static ShufersalProject.UtilityMethods.PageUtilities.*;
 import static ShufersalProject.TestClassShufersal.driver;
 
-import java.time.Duration;
 import java.util.List;
-import java.util.function.Function;
 
 public class AmericanOutletsPage extends PageClass {
 
@@ -71,11 +66,6 @@ public class AmericanOutletsPage extends PageClass {
 
     @FindBy (css = "#totals-price")
     private WebElement totalCartPrice;
-
-    //Constructors
-    AmericanOutletsPage() {
-        super();
-    }
 
     public boolean goToAdidasShoes(){
         clickElement(closeButtonOnAdvertisement);

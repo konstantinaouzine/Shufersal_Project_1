@@ -1,6 +1,5 @@
-package ShufersalProject;
+package ShufersalProject.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,12 +23,6 @@ public class ShufersalLoginPage extends PageClass {
     @FindBy (linkText = "התנתק")
     private WebElement disconnectButton;
 
-
-    //Constructor
-    ShufersalLoginPage(WebDriver driver){
-        super();
-    }
-
     public void performLogin(String username, String password){
         try{
             startLoginButton.click();
@@ -42,8 +35,7 @@ public class ShufersalLoginPage extends PageClass {
             loginButton.click();
 
         }catch(NoSuchElementException e){
-            System.out.println("We failed to login");
-            Assert.assertTrue(false);
+            Assert.fail("We failed to login");
         }
     }
 

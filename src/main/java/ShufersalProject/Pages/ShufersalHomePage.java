@@ -1,6 +1,5 @@
-package ShufersalProject;
+package ShufersalProject.Pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -10,10 +9,6 @@ public class ShufersalHomePage extends PageClass{
 
     @FindBy(css = "#categoryMenu > li:nth-child(5) > a > span")
     private WebElement americanOutletsButton;
-
-    ShufersalHomePage(){
-        super();
-    }
 
     public void goToAmericanOutlets(){
         String windowHandle = driver.getWindowHandle();
@@ -26,8 +21,7 @@ public class ShufersalHomePage extends PageClass{
         if (driver.getTitle().contains("American Outlets"))
             System.out.println("Entered American Outlets");
         else {
-            System.out.println("Something went wrong - failed to enter American Outlets");
-            Assert.assertTrue(false);
+            Assert.fail("Something went wrong - failed to enter American Outlets");
         }
     }
 

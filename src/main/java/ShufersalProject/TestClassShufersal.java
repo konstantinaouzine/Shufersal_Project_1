@@ -1,5 +1,8 @@
 package ShufersalProject;
 
+import ShufersalProject.Pages.AmericanOutletsPage;
+import ShufersalProject.Pages.ShufersalHomePage;
+import ShufersalProject.Pages.ShufersalLoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -8,14 +11,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 public class TestClassShufersal {
     public static WebDriver driver;
 
-    ShufersalLoginPage shufersalLoginPage;
-    ShufersalHomePage shufersalHomePage;
-    AmericanOutletsPage americanOutletsPage;
+    private ShufersalLoginPage shufersalLoginPage;
+    private ShufersalHomePage shufersalHomePage;
+    private AmericanOutletsPage americanOutletsPage;
 
     @BeforeClass
     public void setUp() {
@@ -40,7 +41,7 @@ public class TestClassShufersal {
     @Test (priority = 1)
     public void shufersalLoginTest() {
         driver.get("https://www.shufersal.co.il/online/he/");
-        shufersalLoginPage = new ShufersalLoginPage(driver);
+        shufersalLoginPage = new ShufersalLoginPage();
         shufersalLoginPage.performLogin("ayzink@gmail.com", "k6547899");
         boolean isLoggedIn = shufersalLoginPage.isDisconnectButtonDisplayed();
         Assert.assertTrue(isLoggedIn);
