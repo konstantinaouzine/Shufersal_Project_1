@@ -24,9 +24,6 @@ public class AmericanOutletsPage extends PageClass {
     @FindBy (className = "filter-options-title")
     private List<WebElement> openTypeFilterGroup;
 
-    /*@FindBy (css = "#ui-id-3 > div > div > ol > li:nth-child(4) > a > label")
-    private WebElement selectBasketBallShoesInFilter;*/
-
     @FindBy (xpath = "//span[contains(text(), 'נעלי כדורסל')]")
     private WebElement selectBasketBallShoesInFilter;
 
@@ -102,11 +99,6 @@ public class AmericanOutletsPage extends PageClass {
     }
 
     private void selectShoesColorAndSubmit() throws NoSuchElementException{
-        /*try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
         for (WebElement element : openColorFilterGroup){
             if (element.getText().equalsIgnoreCase("צבע")){
                 clickElement(element);

@@ -18,11 +18,6 @@ public class ShufersalHomePage extends PageClass{
             if (!windowHandle.equalsIgnoreCase(_windowHandle))
                 driver.switchTo().window(_windowHandle);
         }
-        if (driver.getTitle().contains("American Outlets"))
-            System.out.println("Entered American Outlets");
-        else {
-            Assert.fail("Something went wrong - failed to enter American Outlets");
-        }
     }
 
     public boolean isAmericanOutletsOpened(){
