@@ -1,4 +1,4 @@
-package ShufersalProject;
+package ShufersalProject.Tests;
 
 import ShufersalProject.Pages.AmericanOutletsPage;
 import ShufersalProject.Pages.ShufersalHomePage;

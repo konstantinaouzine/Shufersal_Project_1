@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import static ShufersalProject.UtilityMethods.PageUtilities.*;
-import static ShufersalProject.TestClassShufersal.driver;
+import static ShufersalProject.Tests.TestClassShufersal.driver;
 
 import java.util.List;
 

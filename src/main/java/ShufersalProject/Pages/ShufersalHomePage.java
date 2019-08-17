@@ -3,7 +3,7 @@ package ShufersalProject.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import static ShufersalProject.TestClassShufersal.driver;
+import static ShufersalProject.Tests.TestClassShufersal.driver;
 
 public class ShufersalHomePage extends PageClass{
 

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
 
-import static ShufersalProject.TestClassShufersal.driver;
+import static ShufersalProject.Tests.TestClassShufersal.driver;
 
 public class PageUtilities {
     protected static FluentWait wait = new FluentWait(driver).pollingEvery(Duration.ofMillis(500)).withTimeout(Duration.ofSeconds(10)).ignoring(NoSuchElementException.class);
