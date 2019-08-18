@@ -1,5 +1,6 @@
 package ShufersalProject.Pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +12,7 @@ import static ShufersalProject.Tests.TestClassShufersal.driver;
 import java.util.List;
 
 public class AmericanOutletsPage extends PageClass {
+    private static final Logger log = Logger.getLogger(AmericanOutletsPage.class);
 
     @FindBy (css = "#ui-id-4 > span")
     private WebElement shoes;
@@ -72,6 +74,7 @@ public class AmericanOutletsPage extends PageClass {
         if(driver.getTitle().contains("adidas"))
             return true;
         else {
+            log.error("Something went wrong - we failed to enter Adidas shoes category");
             System.out.println("Something went wrong - we failed to enter Adidas shoes category");
             return false;
         }
@@ -113,8 +116,10 @@ public class AmericanOutletsPage extends PageClass {
         action.perform();
 
         selectColorInFilter.click();
+        log.info("Color selected");
         System.out.println("Color selected");
         clickElement(submitButtonInColorSelection);
+        log.info("Submit button pressed");
         System.out.println("Submit button pressed");
 
         boolean areShoesShown = adidasSpecificShoes.isDisplayed();
@@ -130,28 +135,32 @@ public class AmericanOutletsPage extends PageClass {
             action.moveToElement(adidasSpecificShoes).perform();
             String priceInGalleryAsString = lookForPriceInGallery.getAttribute("data-price-amount");
             double priceInGallery = Double.valueOf(priceInGalleryAsString);
+            log.info("Price of shoes in gallery: " + priceInGallery);
             System.out.println("Price of shoes in gallery: " + priceInGallery);
 
             clickElement(addToCartButton);
 
             String priceInBeforeCartScreenAsString = beforeCartElement.getAttribute("data-price-amount");
             double priceInBeforeCartScreen = Double.valueOf(priceInBeforeCartScreenAsString);
-            System.out.println("Price of shoes in beforeGallery: " + priceInBeforeCartScreen);
-            if (priceInGallery!=priceInBeforeCartScreen){
+            log.info("Price of shoes in beforeCart: " + priceInBeforeCartScreen);
+            System.out.println("Price of shoes in beforeCart: " + priceInBeforeCartScreen);
+
+            /*if (priceInGallery!=priceInBeforeCartScreen){
                 System.out.println(priceInGallery-priceInBeforeCartScreen);
                 return false;
-            }
+            }*/
 
             Select sizeSelect = new Select(sizeSelectionSelectInBeforeCartScreen);
-            sizeSelect.selectByVisibleText("10.5 Medium (D)");
+            sizeSelect.selectByVisibleText("12 Medium (D)");
 
             ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 400);");
             clickElement(addToCartButtonInBeforeCartScreen);
             clickElement(cartElement);
             String[] priceArr = totalCartPrice.getText().split(" ");
             double cartTotal = Double.valueOf(priceArr[0]);
+            log.info("Price of shoes in cart: " + cartTotal);
             System.out.println("Price of shoes in cart: " + cartTotal);
-            if(priceInGallery!=cartTotal)
+            if(priceInBeforeCartScreen!=cartTotal)
                 return false;
         }catch (NoSuchElementException e){
             return false;
