@@ -11,7 +11,7 @@ import java.time.Duration;
 import static ShufersalProject.Tests.TestClassShufersal.driver;
 
 public class PageUtilities {
-    protected static FluentWait wait = new FluentWait(driver).pollingEvery(Duration.ofMillis(500)).withTimeout(Duration.ofSeconds(10)).ignoring(NoSuchElementException.class);
+    protected static FluentWait wait = new FluentWait(driver).pollingEvery(Duration.ofMillis(500)).withTimeout(Duration.ofSeconds(12)).ignoring(NoSuchElementException.class);
 
     public static void clickElement(WebElement element){
         element = (WebElement) wait.until(ExpectedConditions.elementToBeClickable(element));
