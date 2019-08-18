@@ -27,10 +27,11 @@ public class PageUtilities {
         eventFiringWebDriver.executeScript("document.querySelector('#ui-id-5').scrollTop=150");*/
 
     //colorSelectionWindow.sendKeys(Keys.SPACE);
-    //selectColorInFilter = wait.until(ExpectedConditions.elementToBeClickable(selectColorInFilter));
 
     /*EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(driver);
         eventFiringWebDriver.executeScript("document.querySelector('#ui-id-5').scrollTop=150");*/
 
     //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", selectColorInFilter);
+
+    //((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 400);");
 }
